@@ -1,0 +1,39 @@
+---
+- name: Apt update
+  apt:
+    update_cache: yes
+
+- name: Install CMake
+  apt: pkg=cmake
+
+- name: Install Unzip
+  apt: pkg=unzip
+
+- name: Install git
+  apt: pkg=git
+
+- name: Install Emacs
+  apt: pkg=emacs
+
+- name: Install zsh 
+  apt: pkg=zsh
+
+- name: "Config terminal (1/4): Switch from bash to zsh"
+  user:
+    name="{{ user }}"
+    shell=/bin/zsh
+
+- name: "Config terminal (2/4): Install Oh-my-zsh"
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh.git
+    dest="{{ path_user }}/.oh-my-zsh"
+
+- name: "Config terminal (3/4): Download syntax hightlightining"
+  git:
+    repo=https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest="{{ path_softwares }}/zsh-syntax-highlighting"
+
+- name: "Config terminal (4/4): Config zshrc"
+  template:
+    src=.zshrc.j2
+    dest={{ path_user }}/.zshrc

@@ -1,0 +1,25 @@
+#
+####### Requirements.txt #######
+#
+bs4
+six
+lxml
+requests
+numpy
+coloredlogs
+
+## Tensorflow
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp27-none-linux_x86_64.whl
+
+## Keras
+scipy
+scikit-learn
+pillow==2.9.0
+keras
+
+## To manipulate the image easily
+imutils
+
+## To save the models and the configs
+h5py
+deepdish

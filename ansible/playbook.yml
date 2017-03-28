@@ -1,0 +1,24 @@
+---
+- name: Config deep learning server
+  hosts: all
+  remote_user: root
+  vars:
+    user: vagrant
+    path_user: "/home/{{ user }}"
+    path_app: "{{ path_user }}/app"
+    path_package: "{{ path_app }}/deep_learning"
+    path_virtualenv: "{{ path_user }}/.virtualenv/workspace"
+    path_softwares: "{{ path_user }}/softwares"
+    path_env_bin_python: "{{ path_virtualenv }}/bin"
+    cmake_config:
+      > 
+      -D CMAKE_BUILD_TYPE=RELEASE
+      -D CMAKE_INSTALL_PREFIX=/usr/local
+      -D BUILD_EXAMPLES=ON
+      -D PYTHON_EXECUTABLE={{ path_virtualenv }}/bin/python
+      -D PYTHON2_PACKAGES_PATH={{ path_virtualenv }}/lib/python2.7/site-packages
+      -D INSTALL_PYTHON_EXAMPLES=ON ..
+  roles:
+    - role: pip
+    - role: utility
+    - role: app

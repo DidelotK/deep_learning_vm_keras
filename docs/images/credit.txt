@@ -1,0 +1,2 @@
+left.png: Icon made by [http://www.flaticon.com/authors/dave-gandy] from www.flaticon.com
+right.png: Icon made by [http://www.flaticon.com/authors/dave-gandy] from www.flaticon.com 

@@ -1,0 +1,5 @@
+#
+####### Requirements.txt #######
+#
+pip==9.0.1
+-r deep_learning/requirements.txt
